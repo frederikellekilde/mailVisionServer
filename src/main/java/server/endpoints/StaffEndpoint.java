@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import server.authentication.Secured;
 import server.controllers.StaffController;
 import server.database.DBConnection;
+import server.models.Item;
 import server.models.Order;
 import server.utility.Encryption;
 import server.utility.Globals;
@@ -65,13 +66,47 @@ public class StaffEndpoint {
         if (isReady) {
             status = 200;
             //Logging for order made ready
-            Globals.log.writeLog(getClass().getName(), this, "Created order with id: " + orderReady.getOrderId(), 0);
+            Globals.log.writeLog(getClass().getName(), this, "Order " + orderReady.getOrderId() + " is made ready  ", 0);
         }
         return Response
                 .status(status)
                 .type("application/json")
                 //encrypt response to client
                 .entity(encryption.encryptXOR("{\"isReady\":\"" + isReady + "\"}"))
+                .build();
+    }
+
+    /**
+     * Method to add item in the databse
+     * @param jsonItem
+     * @return response true or false
+     */
+
+    @Secured
+    @POST
+    @Path("/addItem")
+    public Response createItem(String jsonItem){
+        jsonItem = encryption.encryptXOR(jsonItem);
+        Item itemToBeCreated = new Gson().fromJson(jsonItem, Item.class);
+        int status = 500;
+        boolean result = staffController.addItem(itemToBeCreated.getItemName(), itemToBeCreated.getItemDescription(), itemToBeCreated.getItemPrice(), itemToBeCreated.getItemUrl());
+
+        if (result) {
+            status = 200;
+            //Logging for order created
+            Globals.log.writeLog(getClass().getName(), this, "Added item with id: " + itemToBeCreated.getItemId(), 0);
+
+        } else if (!result) {
+            status = 500;
+            Globals.log.writeLog(getClass().getName(), this, "Internal Server Error 500", 1);
+
+        }
+
+        return Response
+                .status(status)
+                .type("plain/text")
+                //encrypt response to clien before sending
+                .entity(encryption.encryptXOR("{\"itemAdded\":\"" + result + "\"}"))
                 .build();
     }
 }

@@ -393,6 +393,32 @@ public class DBConnection {
     }
 
     /**
+     * Method to add item in the database
+     * @param itemName
+     * @param itemDescription
+     * @param itemPrice
+     * @param itemUrl
+     * @return Returns whether the task was completed or not
+     */
+
+    public int addItem(String itemName, String itemDescription, int itemPrice, String itemUrl){
+        int rowsAffected = 0;
+        try{
+            PreparedStatement addItem = connection.prepareStatement("INSERT into Items (itemName, itemDescription, itemPrice, itemUrl) VALUES (?, ?, ?, ?)");
+            addItem.setString(1, itemName);
+            addItem.setString(2, itemDescription);
+            addItem.setInt(3, itemPrice);
+            addItem.setString(4, itemUrl);
+            rowsAffected = addItem.executeUpdate();
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return rowsAffected;
+    }
+
+
+    /**
      * Method used to create token .
      *
      * @param user Parameter specifying which user that will be assigned a token.

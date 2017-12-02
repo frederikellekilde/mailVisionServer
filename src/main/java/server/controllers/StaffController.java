@@ -41,6 +41,24 @@ public class StaffController {
         return false;
     }
 
+    /**
+     * Method to add an item in the database
+     * @param name
+     * @param desc
+     * @param price
+     * @param url
+     * @return boolean
+     */
+
+    public boolean addItem(String name, String desc, int price, String url){
+        DBConnection dbConnection = new DBConnection();
+        int result = dbConnection.addItem(name, desc, price, url);
+        if (result>0){
+            return true;
+        }
+        return false;
+    }
+
 }
 
 
