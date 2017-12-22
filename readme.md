@@ -33,35 +33,6 @@ K5 : Klienten skal kunne tilgå vareinformation og priser (elev)
 
 K6 : Klienten skal kunne tilgå liste over bestillinger (kantinepersonalet)
 
-## ER-diagram
-
-![ER-Diagram](Arkitektur_documents/ER-Diagram.png)
-
-## Klassediagram
-
-![Klassediagram](Arkitektur_documents/Klassediagram%203.png)
-
-## Flowchart
-
-![Flowchart](Arkitektur_documents/Kantine-app-flowchart.png)
-
-## Sekvensdiagram
-
-### Sekvensdiagram 01
-
-![Sekvensdiagram](Arkitektur_documents/sekvensdiagram1.jpg)
-
-### Sekvensdiagram 02
-
-![Sekvensdiagram](Arkitektur_documents/sekvensdiagram2.jpg)
-
-### Sekvensdiagram 03
-
-![Sekvensdiagram](Arkitektur_documents/sekvensdiagram3.jpg)
-
-## Use-case diagram
-
-![Use-case-Diagram](project%20management/Use-case%20diagram%20Kantine.png)
 
 ## Use-cases med beskrivelser
 
