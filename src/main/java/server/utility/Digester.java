@@ -44,6 +44,8 @@ public class Digester {
     /**
      * Performing hash of string
      *
+     * Method is taken from: https://stackoverflow.com/questions/5531455/how-to-hash-some-string-with-sha256-in-java
+     *
      * @param string input string
      * @return Hashed string
      */
