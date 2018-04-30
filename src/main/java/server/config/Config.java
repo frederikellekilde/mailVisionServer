@@ -17,9 +17,6 @@ public final class Config {
     private static String DATABASE_NAME;
     private static String DATABASE_USER;
     private static String DATABASE_PASSWORD;
-    private static String SALT;
-    private static Boolean ENCRYPTION;
-
 
     /**
      * Method responsible for initializing the config to be used throughout the server, reads the config.json file
@@ -61,8 +58,6 @@ public final class Config {
         DATABASE_NAME = json.get("DATABASE_NAME").toString().replace("\"", "");
         DATABASE_USER = json.get("DATABASE_USER").toString().replace("\"", "");
         DATABASE_PASSWORD = json.get("DATABASE_PASSWORD").toString().replace("\"", "");
-        SALT = json.get("SALT").toString().replace("\"", "");
-        ENCRYPTION = Boolean.parseBoolean(json.get("ENCRYPTION").toString().replace("\"", ""));
 
         return json;
 
@@ -92,14 +87,4 @@ public final class Config {
         return DATABASE_PASSWORD;
 
     }
-
-    public static String getSalt() {
-        return SALT;
-
-    }
-
-    public static Boolean getENCRYPTION() {
-        return ENCRYPTION;
-    }
-
 }

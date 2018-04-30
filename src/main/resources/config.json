@@ -1,11 +1,7 @@
 {
   "DATABASE_HOST": "127.0.0.1",
   "DATABASE_PORT": 3306,
-  "DATABASE_NAME": "yolo",
+  "DATABASE_NAME": "mailVision",
   "DATABASE_USER": "test",
-  "DATABASE_PASSWORD": "",
-
-  "SALT": "8a24afeac710ca2ae8601e877b84bc201e7e6762698d5f305f61035c24e1ecd4",
-
-  "ENCRYPTION":"false"
+  "DATABASE_PASSWORD": ""
 }
